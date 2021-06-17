@@ -5,7 +5,6 @@ import com.tutenlabs.timezonerest.model.TimeResponse;
 import com.tutenlabs.timezonerest.model.OffsetBase;
 import com.tutenlabs.timezonerest.services.ZoneComparator;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -38,10 +37,6 @@ public class TimeController {
 
     private String getOffset(LocalDateTime dateTime, ZoneId id) {
         return dateTime.atZone(id).getOffset().getId().replace("Z", "+00:00");
-    }
-
-    public static String formatDuration(Duration timeLeft) {
-        return String.format("%02d:%02d", timeLeft.toHours(), timeLeft.toMinutesPart());
     }
 
     @ResponseBody
